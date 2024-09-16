@@ -7,18 +7,13 @@
       <!-- username -->
       <el-form-item>
         <span class="svg-container">
-          <el-icon>
-            <avatar />
-          </el-icon>
         </span>
         <el-input placeholder="username" name="username" type="text"></el-input>
       </el-form-item>
       <!-- password -->
       <el-form-item>
         <span class="svg-container">
-          <el-icon>
-            <avatar />
-          </el-icon>
+          <svg-icon icon="https://res.lgdsunday.club/user.svg"></svg-icon>
         </span>
         <el-input placeholder="password" name="password"></el-input>
         <span class="show-pwd">
@@ -37,6 +32,7 @@
 
 <script setup>
 // 导入的组件可以直接使用
+import SvgIcon from '@/components/SvgIcon/index.vue'
 import { Avatar } from '@element-plus/icons-vue'
 import {} from 'vue'
 </script>
