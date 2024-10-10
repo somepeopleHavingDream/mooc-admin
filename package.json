@@ -28,6 +28,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^7.20.0",
     "sass": "^1.78.0",
-    "sass-loader": "^16.0.1"
+    "sass-loader": "^16.0.1",
+    "svg-sprite-loader": "^6.0.9"
   }
 }
