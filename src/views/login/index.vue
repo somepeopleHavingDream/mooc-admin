@@ -9,17 +9,27 @@
         <span class="svg-container">
           <svg-icon icon="user"></svg-icon>
         </span>
-        <el-input placeholder="username" name="username" type="text" v-model="loginForm.username"></el-input>
+        <el-input
+          placeholder="username"
+          name="username"
+          type="text"
+          v-model="loginForm.username"
+        ></el-input>
       </el-form-item>
       <!-- password -->
       <el-form-item prop="password">
         <span class="svg-container">
           <svg-icon icon="password"></svg-icon>
         </span>
-        <el-input placeholder="password" name="password" v-model="loginForm.password"></el-input>
+        <el-input
+          placeholder="password"
+          name="password"
+          :type="passwordType"
+          v-model="loginForm.password"
+        ></el-input>
         <span class="show-pwd">
-          <span class="svg-container">
-            <svg-icon icon="eye"></svg-icon>
+          <span class="svg-container" @click="onChangePwdType">
+            <svg-icon :icon="passwordType === 'password' ? 'eye' : 'eye-open'"></svg-icon>
           </span>
         </span>
       </el-form-item>
@@ -58,6 +68,22 @@ const loginRules = ref({
     }
   ]
 })
+
+// 处理密码框文本显示
+const passwordType = ref('password')
+
+// template 中绑定的方法，直接声明即可
+const onChangePwdType = () => {
+  console.log('onChangePwdType')
+
+  // 当 passwordType 的值为 password 时，改为 text
+  // 使用 ref 声明的数据，在 script 中使用时，需要加 value 来获取具体的值，但是在 template 中使用的时候，不需要加 value
+  if (passwordType.value === 'password') {
+    passwordType.value = 'text'
+  } else {
+    passwordType.value = 'password'
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -95,7 +121,7 @@ $cursor: #fff;
       .el-input__wrapper {
         background-color: rgba(0, 0, 0, 0);
         box-shadow: none;
-        // border: none;
+        width: 85%;
       }
 
       input {
@@ -130,10 +156,9 @@ $cursor: #fff;
     }
   }
 
-  .show_pwd {
+  .show-pwd {
     position: absolute;
     right: 10px;
-    top: 7px;
     font-size: 16px;
     color: $dark_gray;
     cursor: pointer;
