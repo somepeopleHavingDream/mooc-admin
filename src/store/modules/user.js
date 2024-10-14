@@ -2,6 +2,7 @@ import { login } from '@/api/sys'
 import md5 from 'md5'
 import { setItem, getItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
+import router from '@/router'
 
 export default {
   namespaced: true,
@@ -26,8 +27,9 @@ export default {
           password: md5(password)
         })
           .then((data) => {
-            console.log('data', data)
             this.commit('user/setToken', data.token)
+            // 跳转
+            router.push('/')
             resolve()
           })
           .catch((err) => {
