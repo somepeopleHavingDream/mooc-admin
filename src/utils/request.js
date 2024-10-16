@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '@/store'
 import { ELMessage } from 'element-plus'
 
 const service = axios.create({
@@ -8,18 +9,26 @@ const service = axios.create({
 
 // 请求拦截器
 service.interceptors.request.use(
-  config => {
+  (config) => {
+    // 在这里统一注入 token
+    if (store.getters.token) {
+      config.headers.Authorization = `Bearer ${store.getters.token}`
+    }
+
     // 添加 icode
     config.headers.icode = 'B04475EF4DC3F132'
     // 必须返回 config
     return config
+  },
+  (error) => {
+    return Promise.reject(error)
   }
 )
 
 // 响应拦截器
 service.interceptors.response.use(
   // 请求成功
-  response => {
+  (response) => {
     const { success, message, data } = response.data
     // 需要判断当前请求是否成功
     if (success) {
@@ -32,7 +41,7 @@ service.interceptors.response.use(
     }
   },
   // 请求失败
-  error => {
+  (error) => {
     ELMessage.error(error.message)
     return Promise.reject(error)
   }

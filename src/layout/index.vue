@@ -19,8 +19,6 @@ import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain.vue'
 import variables from '@/styles/variables.module.scss'
 import {} from 'vue'
-
-console.log('variables', variables)
 </script>
 
 <style lang="scss" scoped>
