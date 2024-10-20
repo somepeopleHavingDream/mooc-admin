@@ -47,7 +47,7 @@ const logout = () => {
     float: right;
     padding-right: 16px;
 
-    ::v-deep .avatar-container {
+    :v-deep(.avatar-container) {
       cursor: pointer;
 
       .avatar-wrapper {

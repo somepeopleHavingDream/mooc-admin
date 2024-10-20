@@ -1,7 +1,10 @@
 <template>
   <div class="app-wrapper">
     <!-- 左侧 menu -->
-    <sidebar class="sidebar-container" :style="{ backgroundColor: variables.menuBg}"></sidebar>
+    <sidebar
+      class="sidebar-container"
+      :style="{ backgroundColor: variables.menuBg }"
+    ></sidebar>
     <div class="main-container">
       <div class="fixed-header">
         <!-- 顶部 navbar -->
@@ -22,11 +25,11 @@ import {} from 'vue'
 </script>
 
 <style lang="scss" scoped>
-@import '~@/styles/mixin.scss';
-@import '~@/styles/variables.module.scss';
+@use '~@/styles/mixin.scss';
+@use '~@/styles/variables.module.scss' as *;
 
 .app-wrapper {
-  @include clearfix;
+  @include mixin.clearfix;
   position: relative;
   height: 100%;
   widows: 100%;

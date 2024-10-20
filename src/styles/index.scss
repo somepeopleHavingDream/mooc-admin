@@ -1,9 +1,9 @@
-@import './variables.module.scss';
-@import './mixin.scss';
-@import './sidebar.scss';
-// @import './element.scss';
-// @import './transition.scss';
-// @import './update-element.scss';
+@use './variables.module.scss';
+@use './mixin.scss';
+@use './sidebar.scss';
+// @use './element.scss';
+// @use './transition.scss';
+// @use './update-element.scss';
 
 html,
 body {
