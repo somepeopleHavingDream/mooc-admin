@@ -49,6 +49,15 @@ service.interceptors.response.use(
   },
   // 请求失败
   (error) => {
+    // token 过期
+    if (
+      error.response &&
+      error.response.data &&
+      error.response.data.code === 401
+    ) {
+      store.dispatch('user/logout')
+    }
+
     ElMessage.error(error.message)
     return Promise.reject(error)
   }
