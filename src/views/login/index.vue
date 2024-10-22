@@ -87,8 +87,6 @@ const passwordType = ref('password')
 
 // template 中绑定的方法，直接声明即可
 const onChangePwdType = () => {
-  console.log('onChangePwdType')
-
   // 当 passwordType 的值为 password 时，改为 text
   // 使用 ref 声明的数据，在 script 中使用时，需要加 value 来获取具体的值，但是在 template 中使用的时候，不需要加 value
   if (passwordType.value === 'password') {
