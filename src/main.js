@@ -9,8 +9,13 @@ import '@/styles/index.scss'
 import installIcons from '@/icons'
 // 导入路由鉴权
 import './permission'
+import * as ElementPlusIconVue from '@element-plus/icons-vue'
 
 const app = createApp(App)
+for (const [key, component] of Object.entries(ElementPlusIconVue)) {
+  app.component(key, component)
+}
+
 app.use(store)
 app.use(router)
 installElementPlus(app)
