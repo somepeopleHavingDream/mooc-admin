@@ -25,4 +25,8 @@ defineProps({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.el-menu-item.is-active {
+  padding: 0 0;
+}
+</style>
