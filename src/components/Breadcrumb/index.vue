@@ -10,7 +10,30 @@
 </template>
 
 <script setup>
-import {} from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+// 生成数组数据
+const breadcrumbData = ref([])
+const getBreadcrumbData = () => {
+  // 当前路由的标准化路由记录
+  breadcrumbData.value = route.matched.filter(
+    item => item.meta && item.meta.title
+  )
+  console.log(breadcrumbData)
+}
+
+// 监听路由变化
+const route = useRoute()
+watch(
+  route,
+  () => {
+    getBreadcrumbData()
+  },
+  {
+    immediate: true
+  }
+)
 </script>
 
 <style lang="scss" scoped>
