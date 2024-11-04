@@ -1,18 +1,20 @@
 <template>
   <el-breadcrumb class="breadcrumb" separator="/">
-    <el-breadcrumb-item
-      v-for="(item, index) in breadcrumbData"
-      :key="item.path"
-    >
-      <!-- 不可点击 -->
-      <span class="no-redirect" v-if="index === breadcrumbData.length - 1">
-        {{ item.meta.title }}
-      </span>
-      <!-- 可点击 -->
-      <span class="redirect" v-else @click="onLinkClick(item)">
-        {{ item.meta.title }}
-      </span>
-    </el-breadcrumb-item>
+    <transition-group name="breadcrumb">
+      <el-breadcrumb-item
+        v-for="(item, index) in breadcrumbData"
+        :key="item.path"
+      >
+        <!-- 不可点击 -->
+        <span class="no-redirect" v-if="index === breadcrumbData.length - 1">
+          {{ item.meta.title }}
+        </span>
+        <!-- 可点击 -->
+        <span class="redirect" v-else @click="onLinkClick(item)">
+          {{ item.meta.title }}
+        </span>
+      </el-breadcrumb-item>
+    </transition-group>
   </el-breadcrumb>
 </template>
 
@@ -44,7 +46,7 @@ watch(
 
 // 跳转点击事件
 const router = useRouter()
-const onLinkClick = item => {
+const onLinkClick = (item) => {
   router.push(item.path)
 }
 
@@ -67,7 +69,7 @@ const linkHoverColor = ref(store.getters.cssVar.menuBg)
   }
 
   .redirect:hover {
-    color: v-bind(linkHoverColor)
+    color: v-bind(linkHoverColor);
   }
 
   :v-deep(.no-direct) {
