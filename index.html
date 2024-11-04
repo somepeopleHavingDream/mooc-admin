@@ -1,0 +1,23 @@
+<script>
+// 定义 msg 值的数据源
+const messages = {
+  en: {
+    msg: 'hello world'
+  },
+  zh: {
+    msg: '你好世界'
+  }
+}
+
+// 定义切换变量
+let locale = 'en'
+
+// 定义赋值函数
+function t(key) {
+  return messages[locale][key]
+}
+
+// 为 msg 赋值
+let msg = t('msg')
+console.log(msg)
+</script>
