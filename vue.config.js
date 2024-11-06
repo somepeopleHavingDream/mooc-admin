@@ -18,10 +18,7 @@ module.exports = defineConfig({
   },
   transpileDependencies: true,
   chainWebpack(config) {
-    config.module
-      .rule('svg')
-      .exclude.add(resolve('src/icons'))
-      .end()
+    config.module.rule('svg').exclude.add(resolve('src/icons')).end()
     config.module
       .rule('icons')
       .test(/\.svg$/)
@@ -39,6 +36,13 @@ module.exports = defineConfig({
       fallback: {
         path: require.resolve('path-browserify')
       }
-    }
+    },
+    plugins: [
+      new (require('webpack').DefinePlugin)({
+        __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
+        __VUE_OPTIONS_API__: JSON.stringify(true),
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false)
+      })
+    ]
   }
 })
