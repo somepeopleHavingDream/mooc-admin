@@ -54,8 +54,4 @@ const handleSetLanguage = lang => {
 </script>
 
 <style lang="scss" scoped>
-.el-dropdown {
-  font-size: 25px;
-  margin-right: 15px;
-}
 </style>
