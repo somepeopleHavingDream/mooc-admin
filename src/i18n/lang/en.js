@@ -47,7 +47,8 @@ export default {
   },
   universal: {
     confirm: 'confirm',
-    cancel: 'cancel'
+    cancel: 'cancel',
+    title: 'tip'
   },
   navBar: {
     themeChange: 'Theme Modification',

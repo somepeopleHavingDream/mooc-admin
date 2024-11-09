@@ -7,7 +7,10 @@
   >
     <div class="content">
       <p class="title">{{ $t('msg.theme.themeColorChange') }}</p>
-      <el-color-picker v-model="mColor" :predefine="predefineColors"></el-color-picker>
+      <el-color-picker
+        v-model="mColor"
+        :predefine="predefineColors"
+      ></el-color-picker>
     </div>
     <template #footer>
       <el-button @click="closed">{{ $t('msg.universal.cancel') }}</el-button>
@@ -20,6 +23,7 @@
 
 <script setup>
 import { defineEmits, ref } from 'vue'
+import { useStore } from 'vuex'
 
 defineProps({
   modelValue: {
@@ -29,6 +33,8 @@ defineProps({
 })
 
 const emits = defineEmits(['update:modelValue'])
+
+const store = useStore()
 
 // 预定义色值
 const predefineColors = [
@@ -49,15 +55,27 @@ const predefineColors = [
 ]
 
 // 默认色值
-const mColor = ref('#00ff00')
+const mColor = ref(store.getters.mainColor)
 
 const closed = () => {
   emits('update:modelValue', false)
 }
 
+/**
+ * 确定按钮点击事件
+ */
 const confirm = () => {
+  store.commit('theme/setMainColor', mColor.value)
   closed()
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.content {
+  text-align: center;
+
+  .title {
+    margin-bottom: 12px;
+  }
+}
+</style>
