@@ -16,6 +16,7 @@ module.exports = {
     'space-before-function-paren': 'off'
   },
   globals: {
-    defineProps: 'readonly'
+    defineProps: 'readonly',
+    defineEmits: 'readonly'
   }
 }

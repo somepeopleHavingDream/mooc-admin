@@ -22,8 +22,9 @@
 </template>
 
 <script setup>
-import { defineEmits, ref } from 'vue'
+import { ref } from 'vue'
 import { useStore } from 'vuex'
+import { generateNewStyle, writeNewStyle } from '@/utils/theme'
 
 defineProps({
   modelValue: {
@@ -64,7 +65,9 @@ const closed = () => {
 /**
  * 确定按钮点击事件
  */
-const confirm = () => {
+const confirm = async () => {
+  const newStyle = await generateNewStyle(mColor.value)
+  writeNewStyle(newStyle)
   store.commit('theme/setMainColor', mColor.value)
   closed()
 }
