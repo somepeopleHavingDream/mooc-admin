@@ -39,5 +39,9 @@ const logoHeight = 44
     font-size: 16px;
     white-space: nowrap;
   }
+
+  .el-avatar {
+    --el-avatar-bg-color: none;
+  }
 }
 </style>
