@@ -4,6 +4,7 @@
     <hamburger class="hamburger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <screenfull class="right-menu-item hover-effect" style="margin-right: 15px;"></screenfull>
       <theme-picker class="right-menu-item hover-effect"></theme-picker>
       <lang-select class="right-menu-item hover-effect"></lang-select>
       <!-- 头像 -->
@@ -41,6 +42,7 @@ import Hamburger from '@/components/Hamburger/index'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import LangSelect from '@/components/LangSelect/index.vue'
 import ThemePicker from '@/components/ThemePicker/index.vue'
+import Screenfull from '@/components/Screenfull/index'
 
 const store = useStore()
 const logout = () => {
