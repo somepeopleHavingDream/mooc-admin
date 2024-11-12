@@ -4,9 +4,10 @@
     <hamburger class="hamburger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <header-search class="right-menu-item hover-effect" style="margin-right: 15px;"></header-search>
       <screenfull class="right-menu-item hover-effect" style="margin-right: 15px;"></screenfull>
-      <theme-picker class="right-menu-item hover-effect"></theme-picker>
-      <lang-select class="right-menu-item hover-effect"></lang-select>
+      <theme-picker class="right-menu-item hover-effect" style="margin-right: 15px;"></theme-picker>
+      <lang-select class="right-menu-item hover-effect" style="margin-right: 15px;"></lang-select>
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -39,10 +40,11 @@
 import {} from 'vue'
 import { useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger/index'
-import Breadcrumb from '@/components/Breadcrumb/index.vue'
-import LangSelect from '@/components/LangSelect/index.vue'
-import ThemePicker from '@/components/ThemePicker/index.vue'
+import Breadcrumb from '@/components/Breadcrumb/index'
+import LangSelect from '@/components/LangSelect/index'
+import ThemePicker from '@/components/ThemePicker/index'
 import Screenfull from '@/components/Screenfull/index'
+import HeaderSearch from '@/components/HeaderSearch/index'
 
 const store = useStore()
 const logout = () => {
