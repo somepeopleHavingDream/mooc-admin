@@ -17,10 +17,10 @@
       @change="onSelectChange"
     >
       <el-option
-        v-for="option in 5"
-        :key="option"
-        :label="option"
-        :value="option"
+        v-for="option in searchOptions"
+        :key="option.item.path"
+        :label="option.item.title.join(' > ')"
+        :value="option.item"
       ></el-option>
     </el-select>
   </div>
@@ -43,6 +43,7 @@ const searchPool = computed(() => {
 
   return generateRoutes(routes)
 })
+console.log('searchPool.value', searchPool.value)
 
 // 搜索库相关
 const fuse = new Fuse(searchPool.value, {
@@ -76,13 +77,18 @@ const onShowClick = () => {
 const search = ref('')
 
 // 搜索方法
+const searchOptions = ref([])
 const querySearch = query => {
-  console.log('querySearch', fuse.search(query))
+  if (query !== '') {
+    searchOptions.value = fuse.search(query)
+  } else {
+    searchOptions.value = []
+  }
 }
 
 // 选中回调
-const onSelectChange = () => {
-  console.log('onSelectChange')
+const onSelectChange = val => {
+  router.push(val.path)
 }
 </script>
 
