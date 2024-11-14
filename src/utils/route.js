@@ -5,11 +5,13 @@ import path from 'path-browserify'
  */
 const getChildrenRoutes = (routes) => {
   const result = []
+
   routes.forEach((route) => {
     if (route.children && route.children.length > 0) {
       result.push(...route.children)
     }
   })
+
   return result
 }
 
@@ -19,6 +21,7 @@ const getChildrenRoutes = (routes) => {
 export const filterRouters = (routes) => {
   // 所有的子集路由
   const childrenRoutes = getChildrenRoutes(routes)
+  console.log('childrenRoutes', childrenRoutes)
 
   // 根据子集路由进行查重操作
   return routes.filter((route) => {
