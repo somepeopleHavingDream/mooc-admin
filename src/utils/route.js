@@ -16,7 +16,7 @@ const getChildrenRoutes = (routes) => {
 /**
  * 处理脱离层级的路由
  */
-export const filterRoutes = (routes) => {
+export const filterRouters = (routes) => {
   // 所有的子集路由
   const childrenRoutes = getChildrenRoutes(routes)
 
