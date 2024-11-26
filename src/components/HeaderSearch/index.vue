@@ -41,7 +41,6 @@ let searchPool = computed(() => {
 
   return generateRoutes(routes)
 })
-console.log('searchPool.value', searchPool.value)
 
 // 搜索库相关
 let fuse
