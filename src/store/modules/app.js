@@ -19,7 +19,7 @@ export default {
      * 添加 tags
      */
     addTagsViewList(state, tag) {
-      const isFind = state.tagsViewList.find(item => {
+      const isFind = state.tagsViewList.find((item) => {
         return item.path === tag.path
       })
       // 处理重复
