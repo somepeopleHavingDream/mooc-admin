@@ -4,10 +4,26 @@
     <hamburger class="hamburger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
-      <header-search class="right-menu-item hover-effect" style="margin-right: 15px;"></header-search>
-      <screenfull class="right-menu-item hover-effect" style="margin-right: 15px;"></screenfull>
-      <theme-picker class="right-menu-item hover-effect" style="margin-right: 15px;"></theme-picker>
-      <lang-select class="right-menu-item hover-effect" style="margin-right: 15px;"></lang-select>
+      <guide
+        class="right-menu-item hover-effect"
+        style="margin-right: 15px"
+      ></guide>
+      <header-search
+        class="right-menu-item hover-effect"
+        style="margin-right: 15px"
+      ></header-search>
+      <screenfull
+        class="right-menu-item hover-effect"
+        style="margin-right: 15px"
+      ></screenfull>
+      <theme-picker
+        class="right-menu-item hover-effect"
+        style="margin-right: 15px"
+      ></theme-picker>
+      <lang-select
+        class="right-menu-item hover-effect"
+        style="margin-right: 15px"
+      ></lang-select>
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -26,9 +42,9 @@
             <a target="_blank" href="#">
               <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
             </a>
-            <el-dropdown-item divided @click="logout"
-              >{{ $t('msg.navBar.logout') }}</el-dropdown-item
-            >
+            <el-dropdown-item divided @click="logout">{{
+              $t('msg.navBar.logout')
+            }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -45,6 +61,7 @@ import LangSelect from '@/components/LangSelect/index'
 import ThemePicker from '@/components/ThemePicker/index'
 import Screenfull from '@/components/Screenfull/index'
 import HeaderSearch from '@/components/HeaderSearch/index'
+import Guide from '@/components/Guide/index'
 
 const store = useStore()
 const logout = () => {
