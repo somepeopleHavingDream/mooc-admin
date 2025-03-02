@@ -23,7 +23,7 @@ service.interceptors.request.use(
     }
 
     // 添加 icode
-    config.headers.icode = '36884382E40E400E'
+    config.headers.icode = '261B4688E4AC393A'
     // 必须返回 config
     return config
   },
