@@ -22,6 +22,8 @@ service.interceptors.request.use(
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }
 
+    // 配置了接口国际化
+    config.headers['Accept-Language'] = store.getters.language
     // 添加 icode
     config.headers.icode = '261B4688E4AC393A'
     // 必须返回 config
