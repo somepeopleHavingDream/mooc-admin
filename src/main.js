@@ -11,6 +11,8 @@ import installIcons from '@/icons'
 // 导入路由鉴权
 import './permission'
 import * as ElementPlusIconVue from '@element-plus/icons-vue'
+// 全局属性
+import installFilter from '@/filters'
 
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconVue)) {
@@ -19,9 +21,6 @@ for (const [key, component] of Object.entries(ElementPlusIconVue)) {
 
 installElementPlus(app)
 installIcons(app)
+installFilter(app)
 
-app
-  .use(store)
-  .use(router)
-  .use(i18n)
-  .mount('#app')
+app.use(store).use(router).use(i18n).mount('#app')
